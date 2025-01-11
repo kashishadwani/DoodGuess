@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         filled: true,
         fillColor: const Color(0xffF5F5FA),
-        hintText: "Enter your Name",
+        hintText: hintText,
         hintStyle: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w600,
