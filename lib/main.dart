@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kay_scribble/Paint_screen.dart';
 import 'package:kay_scribble/home_screen.dart';
 
 void main() {

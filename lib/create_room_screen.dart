@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kay_scribble/Paint_screen.dart';
 import 'package:kay_scribble/widgets/custom_text_field.dart';
+import './Paint_screen.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({super.key});
@@ -13,6 +15,18 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
   final TextEditingController _roomNameController = TextEditingController();
   late String? _maxRoundsValue;
   late String? _roomSizeValue;
+
+  void createRoom(){
+    if(_nameController.text.isEmpty && _roomNameController.text.isEmpty && _maxRoundsValue!= null && _roomSizeValue!=null){
+      Map data = {
+        "nickname":_nameController.text,
+        "name":_roomNameController.text,
+        "maxRounds": _maxRoundsValue,
+        "occupancy":_roomSizeValue
+      };
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaintScreen(data:data, screenForm: 'createRoom')));
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,14 +104,14 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             )),
           ),
           SizedBox(height: 40),
-          ElevatedButton(onPressed: (){}, child: Text(
+          ElevatedButton(onPressed: createRoom, child: Text(
             "Create",
             style: TextStyle(
             color: Colors.white, fontSize: 16
           )),
             style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.all(Colors.blue),
-    textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white)),
+    backgroundColor: WidgetStateProperty.all(Colors.blue),
+    textStyle: WidgetStateProperty.all(TextStyle(color: Colors.white)),
     minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
            ),
           ),
