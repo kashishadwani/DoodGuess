@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kay_scribble/Paint_screen.dart';
+import 'package:kay_scribble/Paint_screen.dart' as package;
 import 'package:kay_scribble/widgets/custom_text_field.dart';
-import './Paint_screen.dart';
+import 'file:///C:/Users/Lenovo/AndroidStudioProjects/kay_SCRIBBLE/lib/Paint_screen.dart' as local;
 
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({super.key});
@@ -17,14 +17,14 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
   late String? _roomSizeValue;
 
   void createRoom(){
-    if(_nameController.text.isEmpty && _roomNameController.text.isEmpty && _maxRoundsValue!= null && _roomSizeValue!=null){
+    if(_nameController.text.isNotEmpty && _roomNameController.text.isNotEmpty && _maxRoundsValue!= null && _roomSizeValue!=null){
       Map data = {
         "nickname":_nameController.text,
         "name":_roomNameController.text,
         "maxRounds": _maxRoundsValue,
         "occupancy":_roomSizeValue
       };
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaintScreen(data:data, screenForm: 'createRoom')));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => package.PaintScreen(data:data, screenFrom: 'createRoom')));
     }
   }
   @override
@@ -104,7 +104,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             )),
           ),
           SizedBox(height: 40),
-          ElevatedButton(onPressed: createRoom, child: Text(
+          ElevatedButton(onPressed: createRoom,
+            child: Text(
             "Create",
             style: TextStyle(
             color: Colors.white, fontSize: 16
