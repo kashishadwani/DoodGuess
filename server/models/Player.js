@@ -12,10 +12,10 @@ const playerSchema = new mongoose.Schema({
     default: false
     },
     points:{
-    type: Boolean,
+    type: Number,
     default: 0
     }
 })
 
 const playermodel = mongoose.model('Player', playerSchema);
-module.exports = {playermodel, PlayerSchema};
+module.exports = {playermodel, playerSchema};
