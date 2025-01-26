@@ -1,12 +1,13 @@
-const express = require("express");
+const express = require('express');
 var http = require("http");
 const app = express();
 const port = process.env.PORT || 3000;
 var server = http.createServer(app);
 const mongoose = require("mongoose");
+mongoose.set('debug', true);
 const Room = require('./models/Room');
-const getWord = require('./api/getWord');
 
+const getWord = require('./api/getWord');
 var io = require("socket.io")(server);
 
 // middleware
@@ -32,8 +33,8 @@ try{
     socket.emit('notCorrectGame', 'Room with that name already exists!');
     return;
     }
-    const word = getWord();
     let room = new Room();
+    const word = getWord();
     room.word = word;
     room.name = name;
     room.occupancy = occupancy;
