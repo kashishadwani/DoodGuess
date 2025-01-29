@@ -4,7 +4,8 @@ const {playerSchema} = require('./Player');
 const roomSchema = new mongoose.Schema({
     word: {
     required: true,
-    type: String
+    type: String,
+    trim: true
     },
     name: {
     required: true,
@@ -22,7 +23,6 @@ const roomSchema = new mongoose.Schema({
     type: Number
     },
     currentRound: {
-    required: true,
     type: Number,
     default: 1
     },
