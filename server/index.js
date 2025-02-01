@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 var server = http.createServer(app);
 const mongoose = require("mongoose");
-mongoose.set('debug', true);
+
 const Room = require('./models/Room');
 
 const getWord = require('./api/getWord');
@@ -16,18 +16,17 @@ app.use(express.json());
 //connect to our MongoDB
 const DB = "mongodb+srv://kashishadwani17:m8gPaXBD7neRY2VN@clusterk.di19i.mongodb.net/ScribbleDatabase?retryWrites=true&w=majority&appName=ClusterK"
 
-mongoose.set('debug',true);
-mongoose.connect(DB,{useNewUrlParser: true, useUnifiedTopology:true})
+mongoose.connect(DB)
 .then(() => {
 console.log("Connected to MongoDB");
 }).catch((e)=>{
 console.log("MongoDB connection error:",e);
 })
 
-io.on('connection', (socket)=>{
+io.on('connection', [socket]=>{
 console.log('connected');
 //create game
-socket.on('create-game',async({nickname, name, occupancy, maxRounds})=>{
+socket.on('create-game',async({nickname, name, occupancy, maxRounds}) => {
 try{
     console.log("Create-game data received:", { nickname, name, occupancy, maxRounds });
     const existingRoom = await Room.findOne({name});

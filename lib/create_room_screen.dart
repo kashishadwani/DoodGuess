@@ -111,9 +111,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             color: Colors.white, fontSize: 16
           )),
             style: ButtonStyle(
-    backgroundColor: WidgetStateProperty.all(Colors.blue),
-    textStyle: WidgetStateProperty.all(TextStyle(color: Colors.white)),
-    minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
+                backgroundColor: WidgetStateProperty.all(Colors.blue),
+                textStyle: WidgetStateProperty.all(TextStyle(color: Colors.white)),
+                minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
            ),
           ),
         ],

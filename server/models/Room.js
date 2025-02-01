@@ -1,30 +1,31 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const {playerSchema} = require('./Player');
 
 const roomSchema = new mongoose.Schema({
     word: {
-    required: true,
-    type: String,
-    trim: true
+        required: true,
+        type: String,
+        trim: true
     },
     name: {
-    required: true,
-    type: String,
-    unique: true,
-    trim: true,
+        required: true,
+        type: String,
+        unique: true,
+        trim: true,
     },
     occupancy: {
-    required: true,
-    type: Number,
-    default: 4
+        required: true,
+        type: Number,
+        default: 4
     },
     maxRounds: {
-    required: true,
-    type: Number
+        required: true,
+        type: Number
     },
     currentRound: {
-    type: Number,
-    default: 1
+        type: Number,
+        default: 1,
+        required: true,
     },
     players: [playerSchema],
     isJoin: {
