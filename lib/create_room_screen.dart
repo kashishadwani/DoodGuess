@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kay_scribble/Paint_screen.dart' as package;
 import 'package:kay_scribble/widgets/custom_text_field.dart';
-import 'file:///C:/Users/Lenovo/AndroidStudioProjects/kay_SCRIBBLE/lib/Paint_screen.dart' as local;
 
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({super.key});
@@ -45,7 +44,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               hintText: "Enter your name",
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomTextField(
@@ -53,9 +52,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               hintText: "Enter Room Name",
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           DropdownButton<String>(
-            focusColor: Color(0xffF5F6FA),
+            focusColor: const Color(0xffF5F6FA),
             items: <String>[
               "2","5","10","15"
           ].map<DropdownMenuItem<String>>
@@ -63,7 +62,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               value: value,
               child: Text(
                 value,
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
               ),
             ),
           )
@@ -78,9 +77,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               fontWeight: FontWeight.w500,
             )),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           DropdownButton<String>(
-            focusColor: Color(0xffF5F6FA),
+            focusColor: const Color(0xffF5F6FA),
             items: <String>[
               "2","3","4","5","6","7","8"]
                 .map<DropdownMenuItem<String>>
@@ -88,7 +87,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               value: value,
               child: Text(
                 value,
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
               ),
             ),
             )
@@ -103,18 +102,18 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               fontWeight: FontWeight.w500,
             )),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           ElevatedButton(onPressed: createRoom,
-            child: Text(
+            style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(Colors.blue),
+                textStyle: WidgetStateProperty.all(const TextStyle(color: Colors.white)),
+                minimumSize: WidgetStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
+           ),
+            child: const Text(
             "Create",
             style: TextStyle(
             color: Colors.white, fontSize: 16
           )),
-            style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.blue),
-                textStyle: WidgetStateProperty.all(TextStyle(color: Colors.white)),
-                minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
-           ),
           ),
         ],
       ),

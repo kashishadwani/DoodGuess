@@ -32,9 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                 ),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white)),
-                  minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
+                  backgroundColor: WidgetStateProperty.all(Colors.blue),
+                  textStyle: WidgetStateProperty.all(const TextStyle(color: Colors.white)),
+                  minimumSize: WidgetStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
               ),
                 child: const Text(
                 "Create",
@@ -48,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ),
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white)),
-                    minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
+                    backgroundColor: WidgetStateProperty.all(Colors.blue),
+                    textStyle: WidgetStateProperty.all(const TextStyle(color: Colors.white)),
+                    minimumSize: WidgetStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
                 ),
                 child: const Text(
                   "Join",

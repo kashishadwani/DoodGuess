@@ -45,7 +45,7 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
               hintText: "Enter your name",
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomTextField(
@@ -54,17 +54,17 @@ class _JoinRoomScreenState extends State<JoinRoomScreen> {
             ),
           ),
 
-          SizedBox(height: 40),
-          ElevatedButton(onPressed: (){}, child: Text(
+          const SizedBox(height: 40),
+          ElevatedButton(onPressed: (){},
+            style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(Colors.blue),
+                textStyle: WidgetStateProperty.all(const TextStyle(color: Colors.white)),
+                minimumSize: WidgetStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
+            ), child: const Text(
               "Create",
               style: TextStyle(
                   color: Colors.white, fontSize: 16
               )),
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
-                textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white)),
-                minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/2.5, 50))
-            ),
           ),
         ],
       ),
